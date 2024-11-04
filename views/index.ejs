@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-Do List</title>
+		<link rel="stylesheet" href="/styles.css" />
+		<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+	</head>
+	<body>
+		<h1>To-Do List</h1>
+		<form
+			id="task-form"
+			hx-post="/add-task"
+			hx-target="#task-list"
+			hx-swap="innerHTML"
+		>
+			<input type="text" name="task" placeholder="Add a new task" required />
+			<input type="text" name="tags" placeholder="Add tags (comma-separated)" />
+			<input type="number" name="duration" placeholder="Duration (minutes)" />
+			<button type="submit">Add Task</button>
+		</form>
+
+		<ul id="task-list">
+			<% include('partials/task-list') %>
+		</ul>
+	</body>
+</html>

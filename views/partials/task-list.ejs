@@ -1,0 +1,28 @@
+<ul id="task-list">
+	<% tasks.forEach((task, index) => { %>
+	<li class="<%= task.completed ? 'completed' : '' %>">
+		<span><%= task.text %></span>
+		<span class="tags"
+			><%= task.tags && task.tags.length > 0 ? task.tags.join(', ') : 'No tags'
+			%></span
+		>
+		<span class="duration"><%= task.duration %> min</span>
+		<button
+			hx-post="/toggle-task"
+			hx-target="#task-list"
+			hx-swap="innerHTML"
+			hx-vals="{index: <%= index %>}"
+		>
+			<%= task.completed ? 'Undo' : 'Complete' %>
+		</button>
+		<button
+			hx-post="/delete-task"
+			hx-target="#task-list"
+			hx-swap="innerHTML"
+			hx-vals="{index: <%= index %>}"
+		>
+			Delete
+		</button>
+	</li>
+	<% }) %>
+</ul>

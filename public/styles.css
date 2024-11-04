@@ -1,0 +1,23 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+.completed span {
+	text-decoration: line-through;
+	color: gray;
+}
+
+button {
+	margin-left: 10px;
+}
+.tags {
+	font-style: italic;
+	color: gray;
+	margin-left: 10px;
+}
+
+.duration {
+	font-weight: bold;
+	margin-left: 10px;
+}
